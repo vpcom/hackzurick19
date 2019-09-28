@@ -1,6 +1,6 @@
 [
   {
-      "event_id" : 2014423,
+      "id" : 2014423,
       "date" : "2019-09-27",
       "start_time" : "19:00:00.0",
       "end_time" : null,
@@ -17,6 +17,8 @@
       "address_country" : "Schweiz",
       "address_venue_name" : "Stoos-Muotatal Tourismus GmbH",
       "address_latitude" : 46.9872623,
-      "address_longitude" : 8.7277275
+      "address_longitude" : 8.7277275,
+      "carbon_footprint": 1838,
+      "travel_time": 92
   }
 ]

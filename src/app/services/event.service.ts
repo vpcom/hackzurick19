@@ -9,8 +9,9 @@ import { AppEvent } from '../models/app-event.model';
 })
 export class EventService {
 
-  // eventsUrl = 'assets/fake.json';
-  eventsUrl = 'http://beast.traveltimeapp.com:9000/v1/ttp';
+  eventsUrl = 'assets/fake.json';
+  baseUrl = 'http://beast.traveltimeapp.com:9000/v1/ttp';
+  staticData = true;
   cachedEvents: AppEvent[];
   // 47.3769° N, 8.5417° E
   // http://beast.traveltimeapp.com:9000/v1/ttp/47.3769/8.5417/walk?60
@@ -26,7 +27,11 @@ export class EventService {
     if (this.cachedEvents) {
       return of(this.cachedEvents);
     } else {
-      return this.http.get<AppEvent[]>(this.eventsUrl + '/' + lat + '/' + long + '/' + mode + '?' + travelTime ).pipe(
+      if (!this.staticData) {
+        this.eventsUrl = this.baseUrl + '/' + lat + '/' + long + '/' + mode + '?' + travelTime
+      }
+      
+      return this.http.get<AppEvent[]>(this.eventsUrl).pipe(
         map(data => {
           this.cachedEvents = data;
           return this.cachedEvents;

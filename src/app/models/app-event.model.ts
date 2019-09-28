@@ -19,4 +19,6 @@ export interface AppEvent {
   address_venue_name : string;
   address_latitude : number;
   address_longitude : number;
+  carbon_footprint: number;
+  travel_time: number;
 }
