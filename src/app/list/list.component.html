@@ -1,7 +1,7 @@
 <pre>{{ events | json }}</pre>
 
 <ul>
-  <li *ngFor="let event of events$ | async as events; index as i">
-    {{event.event_id}}
+  <li *ngFor="let event of events$ | async as events">
+    <a [routerLink]="['/details/', event.event_id]">{{event.event_id}}</a>
   </li>
 </ul>

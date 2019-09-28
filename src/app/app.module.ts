@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { ParametersComponent } from './parameters/parameters.component';
 import { ListComponent } from './list/list.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     ParametersComponent,
-    ListComponent
+    ListComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

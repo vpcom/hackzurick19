@@ -1,6 +1,6 @@
 import { Time } from '@angular/common';
 
-export interface Event {
+export interface AppEvent {
   event_id: number;
   date : Date;
   start_time : Time;
