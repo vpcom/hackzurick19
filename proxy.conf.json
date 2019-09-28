@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+      "target": "http://beast.traveltimeapp.com:9000",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+  }
+}

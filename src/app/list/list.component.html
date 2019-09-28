@@ -2,6 +2,6 @@
 
 <ul>
   <li *ngFor="let event of events$ | async as events">
-    <a [routerLink]="['/details/', event.event_id]">{{event.event_id}}</a>
+    <a [routerLink]="['/details/', event.id]">{{event.id}}</a>
   </li>
 </ul>
