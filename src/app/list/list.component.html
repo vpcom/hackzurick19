@@ -1,7 +1,22 @@
-<pre>{{ events | json }}</pre>
 
-<ul>
-  <li *ngFor="let event of events$ | async as events">
-    <a [routerLink]="['/details/', event.id]">{{event.id}}</a>
-  </li>
-</ul>
+<div class="list-wrapper">
+  <div *ngFor="let event of events$ | async as events">
+    <a [routerLink]="['/details/', event.id]">
+      <mat-card class="list-item">
+        <div class="card-image">
+          <img src="{{ event.thumbnail_url }}"/>
+        </div>
+        <div class="card-content">
+          <h3>{{event.title}} - {{event.id}}</h3>
+          <p>
+              {{event.short_description}}
+          </p>
+          <div class="data-preview">
+            <div class="data-preview-item">Carbon footprint: {{event.carbon_footprint}}</div>
+            <div class="data-preview-item">Travel time: {{event.travel_time}}</div>
+          </div>
+        </div>
+      </mat-card>
+    </a>
+  </div>
+</div>
