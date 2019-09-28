@@ -7,12 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  title = 'event';
-
   constructor() { }
 
-  ngOnInit() {
-    console.log('main');
-  }
+  ngOnInit() { }
 
 }

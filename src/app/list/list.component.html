@@ -1,1 +1,7 @@
-<p>list works!</p>
+<pre>{{ events | json }}</pre>
+
+<ul>
+  <li *ngFor="let event of events$ | async as events; index as i">
+    {{event.event_id}}
+  </li>
+</ul>
