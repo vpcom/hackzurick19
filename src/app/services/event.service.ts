@@ -41,13 +41,10 @@ export class EventService {
   }
 
   public getEvent(id: number): Observable<AppEvent> {
-
     if (this.cachedEvents) {
       return of(this.cachedEvents.find(event => event.id === id));
     } else {
-      return this.getEvents().pipe(
-        map(events => {
-          return events.find(event => event.id === id)}))
+      return this.http.get<AppEvent>('http://beast.traveltimeapp.com:9000/v1/event/' + id);
     }
   }
 
