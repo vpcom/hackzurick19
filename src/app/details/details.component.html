@@ -2,38 +2,39 @@
 <div>
   <mat-card class="example-card">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{ event.title }}</mat-card-title>
       <mat-card-subtitle>{{ event.homepage }}</mat-card-subtitle>
     </mat-card-header>
-    <img src="{{ event.thumbnail_url }}"/>
-    <mat-card-content>
-        <p>
-            {{ event.long_description }}
-        </p>
-        <p>
-            {{ event.price_information }}
-        </p>
-        <p>
-            {{ event.long_description }}
-        </p>
-        <p>
-            Carbon footprint: {{event.carbon_footprint}}<br>
-            Travel time: {{event.travel_time}}<br>
-        </p>
-        <p>
-            {{ event.address_address_line }}<br>
-            {{ event.address_venue_name }}<br>
-            {{ event.address_street }}<br>
-            {{ event.address_zip }}<br>
-            {{ event.address_zip }} {{ event.address_city }}<br>
-            {{ event.address_country }}<br>
-        </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
+    <div class="content">
+      <div class="card-image">
+        <img src="{{ event.thumbnail }}"/>
+      </div>
+
+      <div class="card-content">
+        <mat-card-content>
+          <p>
+              {{ event.long_description }}
+          </p>
+          <p>
+              {{ event.price_information }}
+          </p>
+          <p>
+              {{ event.long_description }}
+          </p>
+          <p>
+              Carbon footprint: {{event.carbon_footprint}}<br>
+              Travel time: {{event.travel_time}}<br>
+          </p>
+          <p>
+              {{ event.address_address_line }}<br>
+              {{ event.address_venue_name }}<br>
+              {{ event.address_street }}<br>
+              {{ event.address_zip }} {{ event.address_city }}<br>
+              {{ event.address_country }}<br>
+          </p>
+        </mat-card-content>
+      </div>
+    </div>
   </mat-card>
   <br>
 
