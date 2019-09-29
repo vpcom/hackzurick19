@@ -4,7 +4,7 @@
     <div *ngIf="eventList.length > 0; else empty">
       Results found: {{eventList.length}}
       <div *ngFor="let event of eventList">
-        <a [routerLink]="['/details/', event.id]">
+        <a [routerLink]="['/details/', event.id]" class="card-link">
           <mat-card class="list-item">
             <div class="card-image">
               <img src="{{ event.thumbnail }}"/>
@@ -20,7 +20,7 @@
       </div>
     </div>
     <ng-template #empty>
-      No result found
+      Loading... or no result
     </ng-template>
   </div>
 </div>

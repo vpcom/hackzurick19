@@ -1,15 +1,25 @@
 
 <div>
 
-  Routes found:
-  <div *ngFor="let route of event.ttp">
-    <p>
-        Carbon footprint: {{route.carbon_footprint}} grammes<br>
-        Travel time: {{route.travel_time}} minutes<br>
-    </p>
+  <div *ngIf="event.ttp; else noroute">
+    Routes found:
+    <div *ngFor="let route of event.ttp">
+        <div class="route-detail">
+            <p>
+          Carbon footprint: {{route.carbon_footprint}} grammes<br>
+          Travel time: {{route.travel_time}} minutes<br>
+          Cost: {{route.cost}} CHF<br>
+      </p>
+    </div>
   </div>
+  </div>
+  <ng-template #noroute>
+    <p>
+      Please go back to the main page and reselect the event to see the route information.
+    </p>
+  </ng-template>
 
-  <mat-card class="example-card">
+  <mat-card class="detail-card">
     <mat-card-header>
       <mat-card-title>{{ event.title }}</mat-card-title>
       <mat-card-subtitle>{{ event.homepage }}</mat-card-subtitle>

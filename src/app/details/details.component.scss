@@ -8,6 +8,12 @@
   margin: 0 10px;
 }
 
-mat-card.example-card {
+mat-card.detail-card {
   background-color: #76ca4c;
+  margin: 10px;
+}
+
+.route-detail {
+  margin: 0 30px;
+  border-bottom: 1px solid #76ca4c;
 }
