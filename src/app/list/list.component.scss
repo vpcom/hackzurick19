@@ -5,10 +5,11 @@
   margin: 10px;
 }
 
-.list-item {
+mat-card.list-item {
   display: flex;
   flex-direction: row;
   margin: 5px 0;
+  background-color: #76ca4c;
 }
 
 .card-content {
