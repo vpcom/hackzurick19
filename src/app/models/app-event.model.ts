@@ -19,6 +19,41 @@ export interface AppEvent {
   address_venue_name : string;
   address_latitude : number;
   address_longitude : number;
-  carbon_footprint: number;
-  travel_time: number;
+  travel: travel
+}
+
+export interface travel {
+    type: string;
+    time: number;
+    carbon_footprint: number;
+}
+
+export enum travel_type {
+  ANY = "Any",
+  WALK = "Walk",
+  CAR = "Car",
+}
+
+export enum event_type {
+  ANY = "Any",
+  CUSTOMS = "Customs, Folklore & Celebrations",
+  STAGE = "stage",
+  EXHIBITION = "Exhibitions",
+  ART_DESIGN = "Art & design",
+  CONCERT = "Concert",
+  CONGRESS_CONFERENCES = "Congresses & conferences",
+  // CONCERT_FOLK = "Concert folk music",
+  SOCIETY = "Society",
+  FAIR_MARKET = "Fair & market",
+  COMMUNITY_CALENDAR = "Community calendar",
+  COOKING = "Culinary art",
+  // = "Concerts others",
+  MUSEUM_ATTRACTION = "Museums & Attractions",
+  RELIGION = "Religion & Spirituality",
+  PARTY = "Party",
+  SIGHTSEEING = "Sightseeing & city tour",
+  MISC = "This and that",
+  SPORT = "Sports",
+  // = "Classical concert",
+  ECONOMY = "Economy"
 }

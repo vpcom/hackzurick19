@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './app.angular.material.module';
 
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { ParametersComponent } from './parameters/parameters.component';
@@ -26,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

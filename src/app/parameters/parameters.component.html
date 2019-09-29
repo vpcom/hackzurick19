@@ -1,9 +1,32 @@
 <div class="parameters">
-  <div class="parameter">Event type</div>
-  <div class="parameter">Carbon cost level</div>
-  <div class="parameter">Travel duration</div>
-  <div class="parameter">Budget</div>
-  <div class="parameter">Transport type</div>
-  <div class="parameter">Location</div>
-  <div class="parameter">Distance</div>
+  <div>
+    <!-- <form> -->
+      <mat-toolbar>  
+        <mat-toolbar-row>
+          <mat-form-field class="parameter">
+            <mat-label>Event type</mat-label>
+            <mat-select id="type" [(value)]="selectedTypeId" (selectionChange)="changeType($event.value)">
+              <mat-option (electionChange)="change($event)" *ngFor="let anEventType of event_type | keyvalue" [value]="anEventType.key">
+                {{anEventType.value}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="parameter">
+            <input id="duration" matInput placeholder="Travel duration" [(ngModel)]="travelTime">
+          </mat-form-field>
+          <mat-form-field class="parameter">
+            <input matInput placeholder="Budget" [(ngModel)]="budget">
+          </mat-form-field>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+          <mat-form-field class="parameter">
+            <input matInput placeholder="Location" [(ngModel)]="location">
+          </mat-form-field>
+
+          <!-- <button mat-button type="submit" class="btn btn-success">Submit</button> -->
+          <button mat-button (click)="search()" class="btn btn-success">Search</button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    <!-- </form> -->
+  </div>
 </div>

@@ -1,24 +1,54 @@
 [
   {
-      "id" : 2014423,
-      "date" : "2019-09-27",
-      "start_time" : "19:00:00.0",
-      "end_time" : null,
-      "title" : " Supermoto Ried Muotathal SZ",
-      "short_description" : "The still outstanding permit of the canton has arrived, so that the Supermoto Ried Muotathal can now definitely take place. ",
-      "long_description" : "As announced, following the cancellation of the Supermoto Ramsen, the SAM Sports Commission set to work to set up an alternative event. Sport Vice-President Sandro Micheletto and his team succeeded in finding a suitable site in Ried Muotathal. The landowners and tenants, as well as the authorities of the municipality and canton were convinced to grant permission for the event. ",
-      "homepage" : "https://www.s-a-m.ch/Termine/EventsDetails/EID/5285/ModuleID/1442?Title=Supermoto+Ried+Muotathal+SZ",
-      "price_information" : "Saturday:\r\nAdults CHF 15.00\r\nChildren up to 14 free of charge\r\n\r\nSunday:\r\nAdults CHF 20.00\r\nChildren up to 14 free of charge",
-      "thumbnail_url" : "https://d37dhr5745n0y2.cloudfront.net/c/00/b1/c00b1ea5fea11022394709b8ff574f209d30f95f.jpg",
-      "address_street" : "Bacheggli",
-      "address_address_line" : "Micheletto Sandro",
-      "address_zip" : "6434",
-      "address_city" : "Illgau",
-      "address_country" : "Schweiz",
-      "address_venue_name" : "Stoos-Muotatal Tourismus GmbH",
-      "address_latitude" : 46.9872623,
-      "address_longitude" : 8.7277275,
-      "carbon_footprint": 1838,
-      "travel_time": 92
-  }
+    "id" : 2014423,
+    "start_date":"2019-10-11",
+    "end_date":"2019-10-11",
+    "start_time" : "19:00:00.0",
+    "end_time" : null,
+    "title" : " Supermoto Ried Muotathal SZ",
+    "short_description" : "The still outstanding permit of the canton has arrived, so that the Supermoto Ried Muotathal can now definitely take place. ",
+    "long_description" : "As announced, following the cancellation of the Supermoto Ramsen, the SAM Sports Commission set to work to set up an alternative event. Sport Vice-President Sandro Micheletto and his team succeeded in finding a suitable site in Ried Muotathal. The landowners and tenants, as well as the authorities of the municipality and canton were convinced to grant permission for the event. ",
+    "homepage" : "https://www.s-a-m.ch/Termine/EventsDetails/EID/5285/ModuleID/1442?Title=Supermoto+Ried+Muotathal+SZ",
+    "price_information" : "Saturday:\r\nAdults CHF 15.00\r\nChildren up to 14 free of charge\r\n\r\nSunday:\r\nAdults CHF 20.00\r\nChildren up to 14 free of charge",
+    "thumbnail_url" : "https://d37dhr5745n0y2.cloudfront.net/c/00/b1/c00b1ea5fea11022394709b8ff574f209d30f95f.jpg",
+    "address_street" : "Bacheggli",
+    "address_address_line" : "Micheletto Sandro",
+    "address_zip" : "6434",
+    "address_city" : "Illgau",
+    "address_country" : "Schweiz",
+    "address_venue_name" : "Stoos-Muotatal Tourismus GmbH",
+    "address_latitude" : 46.9872623,
+    "address_longitude" : 8.7277275,
+    "category": "sport",
+    "ttp": [
+      {
+        "time": 920,
+        "type": "walk",
+        "carbon_footprint": 0
+      },
+      {
+        "travel_time": 92,
+        "type": "car",
+        "carbon_footprint": 1838
+      }
+    ]
+  },
+  {
+    "event":{
+       "id":1998733,
+       "start_date":"2019-10-11",
+       "end_date":"2019-10-11",
+       "title":"Simply Zurich",
+       "category":"Exhibitions",
+       "short_description":"The city and canton of Zurich have a long and chequered history. This will be shown in a permanent exhibition at the National Museum. From the pile-dwelling settlement to the muesli grater and the handbook for squatters, the exhibition explores Zurich’...",
+       "thumbnail":"https://d37dhr5745n0y2.cloudfront.net/6/ba/4f/6ba4faa367962d9f9b847895fe76b47567f696c0.jpg",
+       "lat":47.3790239,
+       "lng":8.5410038
+    },
+    "ttp":{
+       "id":1998733,
+       "travel_time":4,
+       "carbon_footprint":0
+    }
+ }
 ]

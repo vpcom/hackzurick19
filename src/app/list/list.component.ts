@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EventService } from '../services/event.service';
 import { Observable } from 'rxjs';
 import { AppEvent } from '../models/app-event.model';
@@ -10,6 +10,11 @@ import { AppEvent } from '../models/app-event.model';
 })
 export class ListComponent implements OnInit {
 
+  @Input() eventTypeId: string;
+  @Input() travelTime: number;
+  @Input() budget: number;
+  @Input() location: string;
+  
   events$: Observable<AppEvent[]>;
 
   constructor(private eventService: EventService) { }

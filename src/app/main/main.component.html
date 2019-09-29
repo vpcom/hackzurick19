@@ -1,8 +1,21 @@
 
 <div class="inner-wrapper">
 
-  <app-parameters></app-parameters>
+  <app-parameters
+  [eventTypeId]=eventTypeId
+  [travelTime]=travelTime
+  [budget]=budget
+  [location]=location
+  [latitude]=latitude
+  [longitude]=longitude
+  (parametersReady)="onSubmited($event)"
+  ></app-parameters>
 
-  <app-list></app-list>
+  <app-list
+  [eventTypeId]=eventTypeId
+  [travelTime]=travelTime
+  [budget]=budget
+  [location]=location
+  ></app-list>
 
 </div>

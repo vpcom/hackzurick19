@@ -19,10 +19,10 @@ export class EventService {
   constructor(private http: HttpClient) {}
 
   public getEvents(lat?: number, long?: number, mode?: string, travelTime?: number): Observable<AppEvent[]> {
-    var lat = 47.3769;
-    var long = 8.5417;
-    var mode = 'walk';
-    var travelTime = 30;
+    // var lat = 47.3769;
+    // var long = 8.5417;
+    // var mode = 'walk';
+    // var travelTime = 30;
 
     if (this.cachedEvents) {
       return of(this.cachedEvents);
