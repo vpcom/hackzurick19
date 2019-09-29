@@ -1,18 +1,23 @@
 
 <div class="list-wrapper">
-  <div *ngFor="let event of events$ | async as events">
-    <a [routerLink]="['/details/', event.id]">
-      <mat-card class="list-item">
-        <div class="card-image">
-          <img src="{{ event.thumbnail_url }}"/>
-        </div>
-        <div class="card-content">
-          <h3>{{event.title}} - {{event.id}}</h3>
-          <p>
-              {{event.short_description}}
-          </p>
-        </div>
-      </mat-card>
-    </a>
+  <div *ngIf="eventList$ | async as eventList; else loading">
+    <div *ngFor="let event of eventList">
+      <a [routerLink]="['/details/', event.id]">
+        <mat-card class="list-item">
+          <div class="card-image">
+            <img src="{{ event.thumbnail_url }}"/>
+          </div>
+          <div class="card-content">
+            <h3>{{event.title}} - {{event.id}}</h3>
+            <p>
+                {{event.short_description}}
+            </p>
+          </div>
+        </mat-card>
+      </a>
+    </div>
   </div>
+  <ng-template #loading>
+    Loading...
+  </ng-template>
 </div>

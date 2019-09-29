@@ -10,25 +10,26 @@ import { AppEvent } from '../models/app-event.model';
 export class EventService {
 
   eventsUrl = 'assets/fake.json';
-  baseUrl = 'http://beast.traveltimeapp.com:9000/v1/ttp';
-  staticData = true;
+  //baseUrl = 'http://beast.traveltimeapp.com:9000/v1/ttp';
+  baseUrl = 'http://beast.traveltimeapp.com:9000/v1/events';
+  
+  staticData = false;
   cachedEvents: AppEvent[];
   // 47.3769° N, 8.5417° E
   // http://beast.traveltimeapp.com:9000/v1/ttp/47.3769/8.5417/walk?60
 
   constructor(private http: HttpClient) {}
 
-  public getEvents(lat?: number, long?: number, mode?: string, travelTime?: number): Observable<AppEvent[]> {
+  public getEvents(lat?: number, long?: number, travelTime?: number, eventType?: string): Observable<AppEvent[]> {
     // var lat = 47.3769;
     // var long = 8.5417;
-    // var mode = 'walk';
-    // var travelTime = 30;
 
     if (this.cachedEvents) {
       return of(this.cachedEvents);
     } else {
       if (!this.staticData) {
-        this.eventsUrl = this.baseUrl + '/' + lat + '/' + long + '/' + mode + '?' + travelTime
+        this.eventsUrl = this.baseUrl + '/' + lat + '/' + long + '?travelTime=' + travelTime;
+        if (eventType) this.eventsUrl += "&category=" + eventType;
       }
       
       return this.http.get<AppEvent[]>(this.eventsUrl).pipe(

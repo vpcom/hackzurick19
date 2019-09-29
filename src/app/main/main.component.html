@@ -11,11 +11,14 @@
   (parametersReady)="onSubmited($event)"
   ></app-parameters>
 
-  <app-list
+  <app-list *ngIf="geolocationReady$ | async"
   [eventTypeId]=eventTypeId
   [travelTime]=travelTime
   [budget]=budget
   [location]=location
+  [latitude]=latitude
+  [longitude]=longitude
+  [eventList$]=eventList$
   ></app-list>
 
 </div>

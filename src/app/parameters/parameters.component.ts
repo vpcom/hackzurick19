@@ -26,23 +26,17 @@ export class ParametersComponent implements OnInit {
   }
 
   changeType(id) {
-    console.log(id)
     this.selectedTypeId = id;
   }
 
   search() {
-    console.log(this)
-    //console.log(document.getElementById('duration').value)
-    let ddl = document.getElementById('type');
-    console.log(ddl, this.selectedTypeId)
-    console.log(event_type, event_type[this.selectedTypeId])
-
-
     this.parametersReady.emit({
       eventTypeId: this.selectedTypeId,
       travelTime: this.travelTime,
       budget: this.budget,
       location: this.location,
+      latitude: this.latitude,
+      longitude: this.longitude,
     });
   }
 }

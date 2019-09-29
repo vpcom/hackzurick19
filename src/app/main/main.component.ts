@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../services/event.service';
-import { travel_type } from '../models/app-event.model';
+import { event_type, AppEvent } from '../models/app-event.model';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main',
@@ -9,12 +11,17 @@ import { travel_type } from '../models/app-event.model';
 })
 export class MainComponent implements OnInit {
 
-  public travel_type = travel_type;
-  public travelTime = 30;
-  public budget = 50;
+  public event_type = event_type;
+  public travelTime = 10;
+  public budget = 20;
   public location = "Zurich";
-  public longitude: number;
   public latitude: number;
+  public longitude: number;
+  public geolocationReady$ = new BehaviorSubject(true);
+  geolocationReady = true;
+  eventList$ = new BehaviorSubject([]); //: Observable<AppEvent[]>;
+  eventList: AppEvent[];
+  fullEventList: AppEvent[];
 
   constructor(private eventService: EventService) { }
 
@@ -26,19 +33,35 @@ export class MainComponent implements OnInit {
   getLocation(): void{
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
-          console.log(position);
-          this.longitude = position.coords.longitude;
           this.latitude = position.coords.latitude;
-          this.eventService.getEvents(this.latitude, this.longitude, travel_type.ANY, 30);
+          this.longitude = position.coords.longitude;
+          
+        this.eventService.getEvents(this.latitude, this.longitude, this.travelTime).subscribe(x => {
+          this.eventList$.next(x);
+          this.eventList = x;
+          this.fullEventList = x;
+          
+          this.geolocationReady$.next(true);
         });
+      });
     } else {
        console.log("No support for geolocation")
     }
   }
 
   onSubmited(event) {
-    console.log(event)
-    this.eventService.getEvents(event.latitude, event.longitude, event.travel_type.ANY, event.travelTime);
+    let eventType;
+    if (event.eventTypeId !== "ANY") {
+      eventType = event_type[event.eventTypeId];
+    this.eventList = this.fullEventList.filter(x => x.category === eventType)
+    }
+    else {
+      eventType = event_type.ANY;
+
+    this.eventList = this.fullEventList;
+    }
+
+    this.eventList$.next(this.eventList);
   }
 
 }

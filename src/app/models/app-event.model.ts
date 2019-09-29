@@ -19,7 +19,8 @@ export interface AppEvent {
   address_venue_name : string;
   address_latitude : number;
   address_longitude : number;
-  travel: travel
+  travel: travel;
+  category: string;
 }
 
 export interface travel {
@@ -42,18 +43,15 @@ export enum event_type {
   ART_DESIGN = "Art & design",
   CONCERT = "Concert",
   CONGRESS_CONFERENCES = "Congresses & conferences",
-  // CONCERT_FOLK = "Concert folk music",
   SOCIETY = "Society",
   FAIR_MARKET = "Fair & market",
   COMMUNITY_CALENDAR = "Community calendar",
   COOKING = "Culinary art",
-  // = "Concerts others",
   MUSEUM_ATTRACTION = "Museums & Attractions",
   RELIGION = "Religion & Spirituality",
   PARTY = "Party",
   SIGHTSEEING = "Sightseeing & city tour",
   MISC = "This and that",
   SPORT = "Sports",
-  // = "Classical concert",
   ECONOMY = "Economy"
 }
