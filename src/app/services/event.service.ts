@@ -49,4 +49,12 @@ export class EventService {
           return events.find(event => event.id === id)}))
     }
   }
+  
+  public clearEvents(){
+    this.cachedEvents = undefined;
+  }
+
+  public geocoding(city): Observable<string> {
+    return this.http.get<string>('https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key=AIzaSyDyY_eyWfTxYmYGvAjDUNbtUVyhcijEsro');
+  }
 }

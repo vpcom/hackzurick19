@@ -51,14 +51,32 @@ export class MainComponent implements OnInit {
 
   onSubmited(event) {
     let eventType;
-    if (event.eventTypeId !== "ANY") {
-      eventType = event_type[event.eventTypeId];
-    this.eventList = this.fullEventList.filter(x => x.category === eventType)
+    debugger;
+    if (event.location !== this.location ||
+      event.travelTime !== this.travelTime) {
+        this.location = event.location;
+        this.travelTime = event.travelTime;
+      
+      this.eventService.clearEvents();
+      
+      this.eventService.getEvents(event.latitude, event.longitude, this.travelTime).subscribe(x => {
+        this.eventList$.next(x);
+        this.fullEventList = x;
+        this.eventList = x;
+        this.eventList = this.fullEventList.filter(x => x.category === eventType)
+        
+        this.geolocationReady$.next(true);
+      });
     }
     else {
-      eventType = event_type.ANY;
-
-    this.eventList = this.fullEventList;
+      if (event.eventTypeId !== "ANY" && typeof event.eventTypeId !== undefined) {
+        eventType = event_type[event.eventTypeId];
+        this.eventList = this.fullEventList.filter(x => x.category === eventType);
+      }
+      else {
+        eventType = event_type.ANY;
+        this.eventList = this.fullEventList;
+      }
     }
 
     this.eventList$.next(this.eventList);

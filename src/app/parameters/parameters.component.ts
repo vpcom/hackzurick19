@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { event_type } from '../models/app-event.model';
+import { EventService } from '../services/event.service';
 
 @Component({
   selector: 'app-parameters',
@@ -20,7 +21,7 @@ export class ParametersComponent implements OnInit {
   public event_type = event_type;
   selectedTypeId;
 
-  constructor() { }
+  constructor(private eventService: EventService) { }
 
   ngOnInit() {
   }
@@ -30,13 +31,21 @@ export class ParametersComponent implements OnInit {
   }
 
   search() {
-    this.parametersReady.emit({
-      eventTypeId: this.selectedTypeId,
-      travelTime: this.travelTime,
-      budget: this.budget,
-      location: this.location,
-      latitude: this.latitude,
-      longitude: this.longitude,
-    });
+    this.eventService.geocoding(this.location).subscribe(coord => {
+      console.log(coord);
+      
+      this.latitude = coord['results'][0].geometry.location.lat;
+      this.longitude = coord['results'][0].geometry.location.lng;
+      console.log(this.latitude, this.longitude);
+      
+      this.parametersReady.emit({
+        eventTypeId: this.selectedTypeId,
+        travelTime: this.travelTime,
+        budget: this.budget,
+        location: this.location,
+        latitude: this.latitude,
+        longitude: this.longitude,
+      });
+    })
   }
 }
