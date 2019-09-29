@@ -41,6 +41,7 @@ export class EventService {
   }
 
   public getEvent(id: number): Observable<AppEvent> {
+
     if (this.cachedEvents) {
       return of(this.cachedEvents.find(event => event.id === id));
     } else {
@@ -49,7 +50,7 @@ export class EventService {
           return events.find(event => event.id === id)}))
     }
   }
-  
+
   public clearEvents(){
     this.cachedEvents = undefined;
   }

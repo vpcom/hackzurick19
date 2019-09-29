@@ -1,5 +1,14 @@
 
 <div>
+
+  Routes found:
+  <div *ngFor="let route of event.ttp">
+    <p>
+        Carbon footprint: {{route.carbon_footprint}} grammes<br>
+        Travel time: {{route.travel_time}} minutes<br>
+    </p>
+  </div>
+
   <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>{{ event.title }}</mat-card-title>
@@ -12,18 +21,9 @@
 
       <div class="card-content">
         <mat-card-content>
+          <br>
           <p>
-              {{ event.long_description }}
-          </p>
-          <p>
-              {{ event.price_information }}
-          </p>
-          <p>
-              {{ event.long_description }}
-          </p>
-          <p>
-              Carbon footprint: {{event.carbon_footprint}}<br>
-              Travel time: {{event.travel_time}}<br>
+              Price Info: {{ event.price_information }}
           </p>
           <p>
               {{ event.address_address_line }}<br>
@@ -35,6 +35,9 @@
         </mat-card-content>
       </div>
     </div>
+    <p>
+        {{ event.long_description }}
+    </p>
   </mat-card>
   <br>
 

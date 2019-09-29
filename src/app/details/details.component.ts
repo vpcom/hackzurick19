@@ -16,6 +16,7 @@ export class DetailsComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
               private eventService: EventService) {
     this.id = +this.activatedRoute.snapshot.params.event_id;
+    
     this.eventService.getEvent(this.id).subscribe(appEvent => {this.event = appEvent});
   }
 

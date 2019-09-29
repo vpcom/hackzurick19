@@ -51,7 +51,7 @@ export class MainComponent implements OnInit {
 
   onSubmited(event) {
     let eventType;
-    debugger;
+    
     if (event.location !== this.location ||
       event.travelTime !== this.travelTime) {
         this.location = event.location;
