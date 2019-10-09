@@ -1,6 +1,6 @@
 # Eco route planner
 
-## HAckzurick 2019
+## HackZurick 2019
 
 3 EVENT SEEKING (FOR MERE MORTALS)
 
